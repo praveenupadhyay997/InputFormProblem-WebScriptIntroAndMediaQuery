@@ -21,7 +21,7 @@
             <error-output class="text-error" for="text"></error-output>
         </div>
         <div>
-            <label for="pwd">Enter your password --</label>
+            <label for="pwd">Enter password --</label>
             <input type="password" id="pwd" name="pwd" required>
             <error-output class="password-error" for="pwd"></error-output>
         </div>
@@ -41,6 +41,7 @@
         <div>
             <label for="tel">Telephone input -- </label>
             <input type="tel" id="tel" name="tel">
+            <error-output class="tel-error" for="email"></error-output>
         </div>
         <div>
             <label for="search">Search input -- </label>
@@ -79,13 +80,22 @@
         // Email Regex addition to the code snippet
         const email = document.querySelector('#email');
         const emailError = document.querySelector('.email-error');
-        email.oninput = function () 
-        {
-                let emailRegex = RegExp('^([a-z0-9A-Z])+([._+-]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{3}([.]{1}[a-z]{2})?$');
-                if (emailRegex.test(email.value))
-                    emailError.textContent = '';
+        email.oninput = function () {
+            let emailRegex = RegExp('^([a-z0-9A-Z])+([._+-]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{3}([.]{1}[a-z]{2})?$');
+            if (emailRegex.test(email.value))
+                emailError.textContent = '';
+            else
+                emailError.textContent = "Incorrect Email-Id";
+        };
+        // Mobile-Number Regex addition to the code snippet
+        const mobile = document.querySelector('#tel');
+        const mobileError = document.querySelector('.tel-error');
+        tel.oninput = function () {
+                let telRegex = RegExp('^[+]{1}[0-9]{2}[ ][0-9]{10}$');
+                if (telRegex.test(mobile.value))
+                    mobileError.textContent = '';
                 else
-                    emailError.textContent = "Incorrect Email-Id";
+                    mobileError.textContent = "Incorrect Mobile number";
         };
     </script>
 </body>
