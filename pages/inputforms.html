@@ -91,12 +91,24 @@
         const mobile = document.querySelector('#tel');
         const mobileError = document.querySelector('.tel-error');
         tel.oninput = function () {
-                let telRegex = RegExp('^[+]{1}[0-9]{2}[ ][0-9]{10}$');
-                if (telRegex.test(mobile.value))
-                    mobileError.textContent = '';
-                else
-                    mobileError.textContent = "Incorrect Mobile number";
+            let telRegex = RegExp('^[+]{1}[0-9]{2}[ ][0-9]{10}$');
+            if (telRegex.test(mobile.value))
+                mobileError.textContent = '';
+            else
+                mobileError.textContent = "Incorrect Mobile number";
         };
+        // Password Regex addition to the code snippet
+        const password = document.querySelector('#pwd');
+        const passwordError = document.querySelector('.password-error');
+        password.addEventListener('input',
+            () => {
+                let passRegex = RegExp('^[0-9a-zA-Z]{8,}$');
+                if (passRegex.test(password.value))
+                    passwordError.textContent = '';
+                else
+                    passwordError.textContent = "Wrong Password!!!!";
+            }
+        );
     </script>
 </body>
 
